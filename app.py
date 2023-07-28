@@ -24,7 +24,7 @@ def scrape():
     headers = {
         "Content-Type": "application/json"
     }
-    url = "https://hooks.slack.com/services/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"
+    url = "https://hooks.slack.com/services/WEBHOOK_URL"
 
     response = requests.post(url,headers=headers,json=json)
     return render_template('index.html', scrape=scrape)
