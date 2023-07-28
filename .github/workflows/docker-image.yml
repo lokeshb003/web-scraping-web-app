@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag lokeshb003/web-scraping-app:latest
+    - name: docker login
+      run: docker login -u lokeshb003 -p kepler22b
+    - name: docker push
+      run: docker push lokeshb003/web-scraping-app:latest
